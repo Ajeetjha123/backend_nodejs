@@ -1,8 +1,11 @@
 const http = require("http");
-
+const PORT = 4000;
 const server = http.createServer((req, res) => {
-  res.end("Check your console for the name!");
+  const url = req.url;
+  if (url === "/home") res.end("Welcome Home");
+  else if (url === "/about") res.end("Welcome to About Us page");
+  else if (url === "/node") res.end("Welcome to My Node Js Project");
 });
-server.listen(4000, () => {
-  console.log(`My name Is ${"Ajeet KumR jha"}`);
+server.listen(PORT, () => {
+  console.log(`Server is listing on the port ${PORT}`);
 });
